@@ -23,11 +23,31 @@ export class ProjectsManager {
             if (!projectsPage || !detailsPage) {return}
             projectsPage.style.display = "none"
             detailsPage.style.display = "flex"
+            this.setDetailsPage(project)
         })
         this.ui.append(project.ui)
         this.list.push(project)
         return project
 
+    }
+
+    private setDetailsPage (project: Project) {
+        const detailsPage = document.getElementById("project-details")
+        if (!detailsPage) {return}
+        const name = detailsPage.querySelector("[data-project-info='name']")
+        if (name) {name.textContent = project.name}
+        const name2 = detailsPage.querySelector("[data-project-info='name2']")
+        if (name2) {name2.textContent = project.name}
+        const description = detailsPage.querySelector("[data-project-info='description']")
+        if (description) {description.textContent = project.description}
+        const description2 = detailsPage.querySelector("[data-project-info='description2']")
+        if (description2) {description2.textContent = project.description}
+        const type = detailsPage.querySelector("[data-project-info='type']")
+        if (type) {type.textContent = project.type}
+        const status = detailsPage.querySelector("[data-project-info='status']")
+        if (status) {status.textContent = project.status}
+        const finishdate = detailsPage.querySelector("[data-project-info='finishdate']")
+        if (finishdate) {finishdate.textContent = project.finishdate.getUTCDate() + "/" + (project.finishdate.getUTCMonth()+1) + "/" + project.finishdate.getUTCFullYear()}
     }
 
     getProject (id: string) {
