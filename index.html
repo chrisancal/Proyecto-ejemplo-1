@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Round">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <aside id="sidebar">
+        <div style="background-color: #cbc5bf; padding: 10px 2px; border-radius: 8px;">
+            <img id="company-logo" src="./assets/logo-mcollab.png" alt="Maz Collab">
+        </div>
+        
+        <ul id="nav-buttons">
+            <li id="projects-page-btn"><span class="material-icons-round" style="margin-right: 15px;"> apartment </span>Projects</li>
+            <li><span class="material-icons-round" style="margin-right: 15px;"> account_circle </span>Users</li>
+        </ul>
+    </aside>
+    <main id="content">
+        <div class="page" id="projects-page">
+            <dialog id="new-project-modal">
+                <form id="new-project-form">
+                    <h2>New Project</h2>
+                    <div class="input-list">
+                        <div class="form-field-container">
+                            <label><span class="material-icons-round" style="margin-right: 5px;"> apartment </span>Name</label>
+                            <input name="name" type="text" placeholder="Write the name of your project">
+                        </div>
+                        <div class="form-field-container">
+                            <label><span class="material-icons-round" style="margin-right: 5px;">
+                                edit_note
+                                </span>Description</label>
+                            <textarea name="description" cols="30" rows="5" placeholder="Provide a brief description of your project"></textarea>
+                        </div>
+                        <div class="form-field-container">
+                            <label><span class="material-icons-round" style="margin-right: 5px;">
+                                assignment_ind
+                                </span>Type</label>
+                            <select name="type">
+                                <option>Residential</option>
+                                <option>Comercial</option>
+                                <option>Infrastructure</option>
+                                <option>Industrial</option>
+                            </select>
+                        </div>
+                        <div class="form-field-container">
+                            <label><span class="material-icons-round" style="margin-right: 5px;">
+                                timeline
+                                </span>Status</label>
+                            <select name="status">
+                                <option>Pending</option>
+                                <option>Active</option>
+                                <option>Finished</option>
+                            </select>
+                        </div>
+                        <div class="form-field-container">
+                            <label><span class="material-icons-round" style="margin-right: 5px;">
+                                date_range
+                                </span>Finish date</label>
+                            <input name="finishdate" type="date" placeholder="Enter the projects finish date">
+                        </div>
+    
+                    </div>
+                    <div class="popup-buttons">
+                        <button id="cancel-btn" type="button" class="btn-secondary">Cancel</button>
+                        <button type="submit">Accept</button>
+                    </div>
+                </form>
+            </dialog>
+            <header>
+                <h2>Projects</h2>
+                <div style="display: flex; align-items: center; column-gap: 10px;">
+                    <button style="background-color: transparent;"><span id="export-projects-btn" class="material-icons-round">download</span></button>
+                    <button style="background-color: transparent;"><span id="import-projects-btn" class="material-icons-round">file_upload</span></button>
+                    <button id="new-project-btn"><span class="material-icons-round" style="margin-right: 15px;">add_circle_outline</span>New Project</button>
+                </div>
+            </header>
+            <div id="projects-list">
+            </div>
+        </div>
+        <div class="page" id="project-details" style="display: none;">
+            <header>
+                <div>
+                    <h2>Hospital Center</h2>
+                    <p style="color: #969696;">Community hospital location</p>
+                </div>
+            </header>
+        <!-- Contenido de la pagina principal -->
+            <div class="main-page-content">
+                <div style="display: flex; flex-direction: column; row-gap: 20px;">
+                    <div class="dashboard-card" style="padding: 30px 0;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding: 0px 30px; margin-bottom: 30px;">
+                            <p style="font-size: 20px; background-color: #ca8134; aspect-ratio: 1; border-radius: 100%; padding: 12px;">HC</p>
+                            <button class="btn-secondary"><p style="width: 100%;">Edit</p></button>
+                          </div>
+                          <div style="padding: 0 30px;">
+                            <div>
+                              <h5>Hospital Center</h5>
+                              <p>Community hospital located at downtown</p>
+                            </div>
+                            <div style="display: flex; column-gap: 30px; padding: 30px 0px; justify-content: space-between;">
+                              <div>
+                                <p style="color: #969696; font-size: var(--font-sm)">Status</p>
+                                <p>Active</p>
+                              </div>
+                              <div>
+                                <p style="color: #969696; font-size: var(--font-sm)">Cost</p>
+                                <p>$ 2 542.00</p>
+                              </div>
+                              <div>
+                                <p style="color: #969696; font-size: var(--font-sm)">Role</p>
+                                <p>Engineer</p>
+                              </div>
+                              <div>
+                                <p style="color: #969696; font-size: var(--font-sm)">Finish Date</p>
+                                <p>2023-05-01</p>
+                              </div>
+                            </div>
+                            <div style="background-color: #404040; border-radius: 9999px; overflow: auto;">
+                              <div style="width: 80%; background-color: green; padding: 4px 0; text-align: center;">80%</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="dashboard-card" style="flex-grow: 1;">
+                            <div style="padding: 20px 30px; display: flex; align-items: center; justify-content: space-between;">
+                              <h4>To-Do</h4>
+                              <div style="display: flex; align-items: center; justify-content: end; column-gap: 20px;">
+                                <div style="display: flex; align-items: center; column-gap: 10px;">
+                                  <span class="material-icons-round">search</span>
+                                  <input type="text" placeholder="Search To-Do's by name" style="width: 100%;">
+                                </div>
+                                <span class="material-icons-round">add</span>
+                              </div>
+                            </div>
+                            <div style="display: flex; flex-direction: column; padding: 10px 30px; row-gap: 20px;">
+                              <div class="todo-item">
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                  <div style="display: flex; column-gap: 15px; align-items: center;">
+                                    <span class="material-icons-round" style="padding: 10px; background-color: #686868; border-radius: 10px;">construction</span>
+                                    <p>Make anything here as you want, even something longer.</p>
+                                  </div>
+                                  <p style="text-wrap: nowrap; margin-left: 10px;">Fri, 20 sep</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="viewer-container" class="dashboard-card"></div>
+            </div>
+        </div>
+        <div class="page" id="users-page" style="display: none;">
+            <header style="padding: 30px 30px 0px 40px;">
+                <div>
+                    <h2>Users</h2>
+                    <div class="searchbar">
+                        <span class="material-icons-round" style="margin: 0px 10px;">search</span>
+                        <p>Type name, username</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <button>
+                        <span class="material-icons-round" style="margin-right: 15px;">
+                        add_circle_outline
+                        </span>New User
+                    </button>
+                </div>
+            </header>
+            <div id="users-list">
+                <dialog id="new-user-modal">
+                    <form>
+                        <h2>New User</h2>
+                        <div class="input-list">
+                            <div class="form-field-container">
+                                <label><span class="material-icons-round" style="margin-right: 5px;"> badge </span>Name</label>
+                                <input type="text" placeholder="Write the name of the new user">
+                            </div>
+                            <div class="form-field-container">
+                                <label><span class="material-icons-round" style="margin-right: 5px;">
+                                    engineering
+                                </span>Role</label>
+                                <select>
+                                    <option>Architect</option>
+                                    <option>Project Eng.</option>
+                                    <option>BIM Manager</option>
+                                    <option>BIM Coordinator</option>
+                                    <option>Contractor</option>
+                                    <option>BIM</option>
+                                    <option>Watch</option>
+                                    
+                                    
+                                </select>
+                            </div>
+                            <div class="form-field-container">
+                                <label><span class="material-icons-round" style="margin-right: 5px;">
+                                    groups
+                                    </span>Team</label>
+                                <input type="text" placeholder="Enter the name of the team">
+                            </div>
+                            <div class="form-field-container">
+                                <label><span class="material-icons-round" style="margin-right: 5px;">
+                                    business
+                                    </span>Company</label>
+                                <input type="text" placeholder="Enter the name of the company">
+                            </div>
+                        </div>
+                        <div class="popup-buttons">
+                            <button class="btn-secondary">Cancel</button>
+                            <button>Accept</button>
+                        </div>
+                    </form>
+                </dialog>
+                <div class="user-list-header">
+                    <p style="width: 40px;">N*</p>
+                    <p style="width: 250px;">Name</p>
+                    <p style="width: 200px;">Role</p>
+                    <p style="width: 200px;">Team</p>
+                    <p style="width: 200px;">Company</p>
+                    <p>Status</p>
+
+                </div>
+                <div id="user-data">
+                    <div class="user-card">
+                        <p style="width: 40px;">1</p>
+                        <p style="width: 250px;">Christopher Sanchez</p>
+                        <p style="width: 200px;">BIM Coordinator</p>
+                        <p style="width: 200px;">Coordination</p>
+                        <p style="width: 200px;">MAZ</p>
+                        <p style="background-color: green; border-radius: 50px; padding: 5px;">Active</p>
+                    </div>
+                    <div class="user-card">
+                        <p style="width: 40px;">2</p>
+                        <p style="width: 250px;">Alexander Barrantes</p>
+                        <p style="width: 200px;">Watch</p>
+                        <p style="width: 200px;">Contractor</p>
+                        <p style="width: 200px;">EVCO</p>
+                        <p style="background-color: red; border-radius: 50px; padding: 5px;">Inactive</p>
+                    </div>
+                    <div class="user-card">
+                        <p style="width: 40px;">3</p>
+                        <p style="width: 250px;">Bertilda Meneses</p>
+                        <p style="width: 200px;">Project Eng.</p>
+                        <p style="width: 200px;">Architect</p>
+                        <p style="width: 200px;">Garnier Arquitectos</p>
+                        <p style="background-color: green; border-radius: 50px; padding: 5px;">Active</p>
+                    </div>
+                    <div class="user-card">
+                        <p style="width: 40px;">4</p>
+                        <p style="width: 250px;">Ana Maria Castillo</p>
+                        <p style="width: 200px;">BIM Manager</p>
+                        <p style="width: 200px;">Coordination</p>
+                        <p style="width: 200px;">MAZ</p>
+                        <p style="background-color: green; border-radius: 50px; padding: 5px;">Active</p>
+                    </div>
+                    <div class="user-card">
+                        <p style="width: 40px;">5</p>
+                        <p style="width: 250px;">Rodrigo Romero</p>
+                        <p style="width: 200px;">BIM</p>
+                        <p style="width: 200px;">Electric</p>
+                        <p style="width: 200px;">Create</p>
+                        <p style="background-color: gray; border-radius: 50px; padding: 5px;">Not yet logged</p>
+                    </div>
+                    <div class="user-card">
+                        <p style="width: 40px;">6</p>
+                        <p style="width: 250px;">Pablo Murillo</p>
+                        <p style="width: 200px;">BIM Manager</p>
+                        <p style="width: 200px;">Coordination</p>
+                        <p style="width: 200px;">MAZ</p>
+                        <p style="background-color: green; border-radius: 50px; padding: 5px;">Active</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+    <script type="module" src="./src/index.ts"></script>
+</body>
+</html>
