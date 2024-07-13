@@ -139,6 +139,7 @@ header {
 
 .project-card{
     background-color: var(--background-100);
+    border-radius: 8px;
 }
 .project-card:hover {
     outline: 2px solid var(--primary)
@@ -253,7 +254,7 @@ label{
 input, textarea, select {
     color: white;
     background-color: var(--background-200);
-    padding: 15px;
+    padding: 7px;
     border-radius: 8px;
     border: none;
     font-size: var(--BaseFont);
