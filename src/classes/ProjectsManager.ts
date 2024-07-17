@@ -297,7 +297,7 @@ export class ProjectsManager {
                     console.log("Proyecto agregado:")
                     
                 } catch (error) {
-
+                    window.alert(err) //Window is a global object and the method alert can be used without window.
                 }
                 
             }
